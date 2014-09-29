@@ -1,0 +1,45 @@
+{
+  "name": "rungist.github.com",
+  "version": "0.0.0",
+  "description": "run gist.github.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rungist/rungist.github.com.git"
+  },
+  "keywords": [
+    "gist",
+    "runable",
+    "rungist"
+  ],
+  "author": "Jichao Ouyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rungist/rungist.github.com/issues"
+  },
+  "homepage": "https://github.com/rungist/rungist.github.com",
+  "dependencies": {
+    "pun": "^0.1.1",
+    "react": "^0.11.2"
+  },
+  "devDependencies": {
+    "browserify": "^5.12.1",
+    "jest-cli": "^0.1.18",
+    "react-tools": "^0.11.2",
+    "reactify": "^0.14.0"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>lib/utils/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}
