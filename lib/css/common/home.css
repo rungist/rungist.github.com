@@ -1,0 +1,19 @@
+body {
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.ui.labeled.icon.button > .icon {
+	width: 4.75em;
+}
+
+.ui.labeled.icon.button i.icon:before {
+	margin-right: 5px;
+}
+
+#gist .main.container {
+	padding: 0% 8%;
+}
+
+#gist .main.container .authorship {
+	font-size: 12px;
+}
