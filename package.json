@@ -4,6 +4,8 @@
   "description": "run gist.github.com",
   "main": "index.js",
   "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/src/app.js",
+    "build": "NODE_ENV=production browserify js/src/app.js | ./node_modules/uglify-js/bin/uglifyjs -cm > js/bundle.min.js",
     "test": "jest"
   },
   "repository": {
@@ -23,17 +25,23 @@
   "homepage": "https://github.com/rungist/rungist.github.com",
   "dependencies": {
     "pun": "^0.1.1",
-    "react": "^0.11.2"
+    "react": "^0.11.2",
+    "ramda": "^0.5.0"
   },
   "devDependencies": {
     "browserify": "^5.12.1",
     "jest-cli": "^0.1.18",
     "react-tools": "^0.11.2",
-    "reactify": "^0.14.0"
+    "reactify": "^0.14.0",
+    "watchify": "^1.0.6",
+    "6to5": "0.0.9",
+    "uglify-js": "^2.4.15"
   },
   "browserify": {
     "transform": [
-      "reactify"
+      "reactify",
+      "envify",
+      "6to5/browserify"
     ]
   },
   "jest": {

@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
-var React = require('react')
+var React = require('react');
 var HomePage = React.createClass({
   render: function(){
     return (
-      <div id='homepage'>hehe</div>
+      <div>Home page</div>
     )
   }
-})
-module.exports=HomePage
+});
+module.exports=HomePage;
