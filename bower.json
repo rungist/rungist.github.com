@@ -1,0 +1,19 @@
+{
+  "name": "rungist.github.com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rungist/rungist.github.com",
+  "authors": [
+    "Jichao Ouyang <oyanglulu@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~0.19.3"
+  }
+}
