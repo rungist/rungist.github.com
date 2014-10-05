@@ -1,14 +1,16 @@
 /** @jsx React.DOM */
-jest.dontMock('../components/homepage.react');
-describe('homepage', function(){
+jest.dontMock('../components/rungist.react');
+describe('rungist page', function(){
   var React = require('react/addons');
-  var HomePage = require('../components/homepage');
+  window.jQuery = require('jquery');
+  window.jQuery.setAjaxReturn({result: "hehe"});
+  var RunGistPage = require('../components/rungist.react');
   var TestUtils = React.addons.TestUtils;
-  var homepage = TestUtils.renderIntoDocument(
-    <HomePage/>
+  var runGistPage = TestUtils.renderIntoDocument(
+    <RunGistPage gistid="wang le ai" username="kong nv shen"/>
   );
-  it('should render homepage into DOM', function(){
-    var homePageElement = TestUtils.findRenderedComponentWithType(homepage, HomePage);
-    expect(homePageElement.getDOMNode().id).toBe("homepage");
+  it('should render result into DOM', function(){
+    var runGistPageElement = TestUtils.findRenderedComponentWithType(runGistPage, RunGistPage);
+    expect(runGistPageElement.getDOMNode().querySelector('.ui').innerHTML).toBe("hehe");
   });
 });
