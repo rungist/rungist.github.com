@@ -34,6 +34,18 @@ var MetaData = React.createClass({
   render: function(){
     return (
       <div>
+        <div className="right floated column">
+          <div className="ui mini basic icon buttons fork">
+            <a className="ui button" href={"https://gist.github.com/" + this.props.username + "/" + this.props.gistid + "/fork"}>
+              <i className="fork code icon"></i>
+              Fork
+            </a>
+            <a className="ui button count">
+              {this.state.forks.length}
+            </a>
+          </div>
+        </div>
+
         <h3 className="ui header">{this.state.description}</h3>
         <div className="authorship">
           <img className="ui avatar image" src={this.state.owner.avatar_url}/>
