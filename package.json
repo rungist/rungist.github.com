@@ -4,8 +4,8 @@
   "description": "run gist.github.com",
   "main": "index.js",
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d js/src/app.js",
-    "build": "NODE_ENV=production browserify js/src/app.js | ./node_modules/uglify-js/bin/uglifyjs -cm > js/bundle.min.js",
+	  "start": "watchify -o js/bundle.js -v -d js/src/app.js",
+    "build": "NODE_ENV=production browserify js/src/app.js | ./node_modules/uglify-js/bin/uglifyjs -cm > js/bundle.js",
     "test": "jest"
   },
   "repository": {
