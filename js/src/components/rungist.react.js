@@ -1,7 +1,9 @@
 /** @jsx React.DOM */
 var $ = window.jQuery;
 var React = require('react');
+var ramda = require('ramda');
 var MetaData = require('./metadata.react')
+var APIWidget = require('./api.react')
 var RunGistPage = React.createClass({
   getInitialState: function(){
     return {
@@ -49,17 +51,22 @@ var RunGistPage = React.createClass({
   },
   render: function(){
     return (
-        <div className="ui grid">
-          <div className="ten wide column">
-            <MetaData gistid={this.props.gistid} username={this.props.username}/>
-            <div className="ui segment">
-              <div className="codeblock" id="editor">
-                {JSON.stringify(this.state.result)}
-              </div>
+      <div className="ui grid">
+        <div className="ten wide column">
+          <MetaData gistid={this.props.gistid} username={this.props.username}/>
+          <div className="ui segment">
+            <div className="codeblock" id="editor">
+              {JSON.stringify(this.state.result)}
             </div>
           </div>
         </div>
+        <APIWidget gistid={this.props.gistid} username={this.props.username}/>
+      </div>
     )
   }
 });
 module.exports=RunGistPage;
+
+
+
+
