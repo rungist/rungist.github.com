@@ -4,8 +4,7 @@ var $ = pun.$;
 var homepage = require('./homepage');
 var rungist = require('./rungist');
 var route = pun.match(
-  [""], homepage,
   [$('username'),$('gistid')], rungist,
-  _, homepage
+  _, function(hehe){console.log(hehe)}
 );
 module.exports = route;

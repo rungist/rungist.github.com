@@ -42,7 +42,7 @@ var RunGistPage = React.createClass({
           <MetaData gistid={this.props.gistid} username={this.props.username}/>
           <div className="ui segment result">
             <div className="codeblock" id="editor">
-              {JSON.stringify(this.state.result)}
+              {JSON.stringify(this.state.result, undefined, 2)}
             </div>
           </div>
         </div>
