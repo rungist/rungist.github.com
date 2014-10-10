@@ -43,7 +43,7 @@ var APIWidget = React.createClass({
       return (
         <div className={"ui segment apiwidget " + (language==this.state.language?"":"hidden")}>
           <a className="ui right corner label" data-content="copied" data-variation="inverted" data-clipboard-text={codeblock} id={codeblock_id+"-button"}>
-            <i className="ui icon fa fa-clipboard"></i>
+            <span className="ui icon octicon octicon-clippy"></span>
           </a>
           <div className={"codeblock "} data-language={language} id={codeblock_id}>
             {codeblock}

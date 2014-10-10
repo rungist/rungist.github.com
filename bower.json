@@ -17,6 +17,6 @@
     "semantic-ui": "~0.19.3",
     "ace-builds": "~1.1.7",
     "zeroclipboard": "~2.1.6",
-    "fontawesome": "~4.2.0"
+    "octicons": "~2.1.2"
   }
 }

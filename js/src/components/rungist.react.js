@@ -45,7 +45,7 @@ var RunGistPage = React.createClass({
           <MetaData gistid={this.props.gistid} username={this.props.username}/>
         <div className="ui segment result">
           <a className="ui right corner label" data-content="copied" data-variation="inverted" data-clipboard-text={result}  id="result-clipboard">
-            <i className="ui icon fa fa-clipboard"></i>
+            <span className="ui icon octicon octicon-clippy"></span>
           </a>
             <div className="codeblock" id="result-codeblock">
               {result}

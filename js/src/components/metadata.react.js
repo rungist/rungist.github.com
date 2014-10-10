@@ -30,16 +30,20 @@ var MetaData = React.createClass({
           })
         }
       })
+      $('.popup').popup()
     }
   },
   render: function(){
     return (
       <div>
         <div className="right floated column">
-          <div className="ui mini basic icon buttons fork">
+          <div className="ui mini basic icon buttons source">
+            <a className="ui button" href={"https://gist.github.com/" + this.props.username + "/" + this.props.gistid}>
+              <i className="octicon octicon-octoface popup" data-content="source"> </i>
+            </a>
+          
             <a className="ui button" href={"https://gist.github.com/" + this.props.username + "/" + this.props.gistid + "/fork"}>
-              <i className="fork code icon"></i>
-              Fork
+              <i className="octicon octicon-git-branch popup" data-content="forks"> </i>
             </a>
             <a className="ui button count">
               {this.state.forks.length}
