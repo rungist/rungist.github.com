@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var $ = window.jQuery;
 var aceHighlighter = require('../utils/ace')
+var clipboardify = require('../utils/zeroclipboard')
 var CODEBLOCK = {
   sh: "curl -H \"Content-Type: application/json\" -d  '{ \"your_parameter_key\": \"your_value_here\" }' GISTURL",
   javascript:"$.ajax({\n  url: \"GISTURL\",\n  type: \"POST\",\n  data: { your_parameter_key: \"your_value_here\"},\n  crossDomain: true\n}).done(function(response){\n  console.log(response);\n});",
@@ -30,15 +31,23 @@ var APIWidget = React.createClass({
   componentDidUpdate: function(){
     var codeblocks = $('.apiwidget .codeblock');
     codeblocks.each((_,codeblock)=>{
+      clipboardify($('#codeblock-'+codeblock.dataset.language+'-button'));
       aceHighlighter(codeblock, codeblock.dataset.language)
     })
   },
 
   render: function(){
     var codeblocks = ['sh','javascript','ruby'].map((language)=>{
+      var codeblock_id = "codeblock-"+ language
+      var codeblock = CODEBLOCK[language].replace('GISTURL',this.state.url)
       return (
-        <div className={"codeblock " + (language==this.state.language?"":"hidden")} data-language={language}>
-          {CODEBLOCK[language].replace('GISTURL',this.state.url)}
+        <div className={"ui segment apiwidget " + (language==this.state.language?"":"hidden")}>
+          <a className="ui right corner label" data-content="copied" data-variation="inverted" data-clipboard-text={codeblock} id={codeblock_id+"-button"}>
+            <i className="ui icon fa fa-clipboard"></i>
+          </a>
+          <div className={"codeblock "} data-language={language} id={codeblock_id}>
+            {codeblock}
+          </div>
         </div>
       );
     })
@@ -49,9 +58,7 @@ var APIWidget = React.createClass({
 			    <a className="green item" data-tab="javascript" onClick={this.changeTab}>jQuery</a>
 			    <a className="red item" data-tab="ruby" onClick={this.changeTab}>Ruby</a>
 			  </div>
-        <div className="ui segment apiwidget">
-          {codeblocks}
-        </div>
+        {codeblocks}
 			</div>
     )
   }

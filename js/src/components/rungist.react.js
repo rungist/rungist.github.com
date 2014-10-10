@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var $ = window.jQuery;
 var aceHighlighter = require('../utils/ace')
+var clipboardify = require('../utils/zeroclipboard')
 var React = require('react');
 var ramda = require('ramda');
 var MetaData = require('./metadata.react')
@@ -34,23 +35,20 @@ var RunGistPage = React.createClass({
   componentDidUpdate: function(){
     var codeblock = document.querySelector('.result .codeblock');
     aceHighlighter(codeblock, 'javascript');
-    var clip = new ZeroClipboard($("#result-clipboard"));
-    clip.on("ready", function() {
-      console.log("Flash movie loaded and ready.");
-      this.on("aftercopy", function(event) {
-        $("#result-clipboard").popup({on:"click"}).popup("show")
-      });
-    }); 
+    clipboardify($('#result-clipboard'));
   },
   render: function(){
+    var result = JSON.stringify(this.state.result, undefined, 2)
     return (
       <div className="ui grid">
         <div className="ten wide column">
           <MetaData gistid={this.props.gistid} username={this.props.username}/>
         <div className="ui segment result">
-          <button class="ui top right attached label" data-content="copied" data-variation="inverted" id="result-clipboard" data-clipboard-target="result-codeblock">Copy</button>
+          <a className="ui right corner label" data-content="copied" data-variation="inverted" data-clipboard-text={result}  id="result-clipboard">
+            <i className="ui icon fa fa-clipboard"></i>
+          </a>
             <div className="codeblock" id="result-codeblock">
-              {JSON.stringify(this.state.result, undefined, 2)}
+              {result}
             </div>
           </div>
         </div>

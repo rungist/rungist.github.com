@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var $ = window.jQuery;
 var React = require('react');
+var prettyDate = require('../utils/prettyDate');
 var MetaData = React.createClass({
   getInitialState: function(){
     return {
@@ -49,8 +50,8 @@ var MetaData = React.createClass({
         <h3 className="ui header">{this.state.description}</h3>
         <div className="authorship">
           <img className="ui avatar image" src={this.state.owner.avatar_url}/>
-          <span className="author-name">{this.state.owner.login}</span>
-          <span className="time">{this.state.updated_at}</span>
+          <a href="{this.state.owner.url}"><span className="">{this.state.owner.login}</span></a>
+        <span className="time"> updated {prettyDate(this.state.updated_at)}</span>
         </div>
       </div>
     )
