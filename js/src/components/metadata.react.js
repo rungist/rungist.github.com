@@ -54,7 +54,7 @@ var MetaData = React.createClass({
         <h3 className="ui header">{this.state.description}</h3>
         <div className="authorship">
           <img className="ui avatar image" src={this.state.owner.avatar_url}/>
-          <a href="{this.state.owner.url}"><span className="">{this.state.owner.login}</span></a>
+          <a href={this.state.owner.html_url}><span className="">{this.state.owner.login}</span></a>
         <span className="time"> updated {prettyDate(this.state.updated_at)}</span>
         </div>
       </div>
