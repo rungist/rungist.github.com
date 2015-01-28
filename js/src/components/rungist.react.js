@@ -17,7 +17,7 @@ var RunGistPage = React.createClass({
   componentDidMount: function(){
     if (this.isMounted()) {
       $.ajax({
-        url:"http://gist.github.com.ru/"+this.props.username +'/' + this.props.gistid,
+        url:"https://gist.github.com.ru/"+this.props.username +'/' + this.props.gistid + window.location.search,
         type: 'get',
         dataType: 'jsonp',
         crossDomain: true
