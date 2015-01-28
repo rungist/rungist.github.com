@@ -16,7 +16,7 @@ var APIWidget = React.createClass({
       error: false,
       language: 'sh',
       codeblock: CODEBLOCK['sh'],
-      url: "https://gist.github.com.ru/" + this.props.username +'/' + this.props.gistid
+      url: "http://gist.github.com.au/" + this.props.username +'/' + this.props.gistid
     }
   },
   changeTab: function(e){
